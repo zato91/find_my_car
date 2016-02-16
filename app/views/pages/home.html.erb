@@ -5,12 +5,18 @@
       Trouve ta voiture tout près de chez toi !
     </p>
 
-    <form action="/cars_path" class="form-inline">
+ <!--    <form action="/cars_path" class="form-inline">
       <input type="text" class="form-control input-lg" placeholder="checkin" name="checkin">
       <input type="text" class="form-control input-lg" placeholder="checkout" name="checkout">
       <input type="text" class="form-control input-lg" placeholder="Address" name="address">
       <input type="submit" class="btn btn-primary btn-lg" value="Search">
-    </form>
+    </form> -->
 
+    <%= form_tag cars_path, class: 'form-inline' do %>
+      <input type="text" class="form-control input-lg" placeholder="checkin" name="checkin">
+      <input type="text" class="form-control input-lg" placeholder="checkout" name="checkout">
+      <input type="text" class="form-control input-lg" placeholder="Address" name="address">
+      <%= submit_tag 'Save', class: "btn btn-primary btn-lg", value: "Search" %>
+    <% end -%>
   </div>
 </div>
