@@ -2,7 +2,8 @@ class CarsController < ApplicationController
   before_action :set_cars, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@cars = Car.all
+  if @cars.blank?
+  	@cars = Car.select{|c| c.address.downcase == params[:address].downcase}
   end
 
   def show
