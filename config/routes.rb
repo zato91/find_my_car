@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'users/edit'
+
+  get 'users/update'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   root 'pages#home'
