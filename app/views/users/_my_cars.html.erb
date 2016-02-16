@@ -1,0 +1,18 @@
+<div class="text-center">
+  <h1>Mes voitures</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+      <ul class="list-unstyled">
+        <% @user.cars.each do |car| %>
+          <li>
+            <%= car.description %>
+            <% car.model %>
+          </li>
+        <% end %>
+      </ul>
+      <%= render "cars/form" %>
+    </div>
+  </div>
+</div>

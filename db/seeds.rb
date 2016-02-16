@@ -11,7 +11,7 @@ User.destroy_all
 
 
 users_attributes = [
- { 
+ {
  		email: "toto@gmail.com",
  		password: "12345678"
 
@@ -43,7 +43,7 @@ cars_attributes = [
     engin:  			"essence",
     year: 				2002,
     km:   				150_000,
-    user_id: 					20		
+    user_id: 					1
   },
   {
     model:         "supra",
@@ -54,7 +54,7 @@ cars_attributes = [
     engin:  			"essence",
     year: 				2007,
     km:   				110_000,
-    user_id: 					21		
+    user_id: 					2
   },
   {
     model:         "prius",
@@ -65,7 +65,7 @@ cars_attributes = [
     engin:  			"diesel",
     year: 				2013,
     km:   				20_000,
-    user_id: 					22		
+    user_id: 					3
   }
 
 ]
