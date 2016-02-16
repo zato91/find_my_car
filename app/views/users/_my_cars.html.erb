@@ -8,11 +8,10 @@
         <% @user.cars.each do |car| %>
           <li>
             <%= car.description %>
-            <% car.model %>
+            <%= car.model %>
           </li>
         <% end %>
       </ul>
-      <%= render "cars/form" %>
     </div>
   </div>
 </div>
