@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.5) 50%), url('https://source.unsplash.com/category/technology/1200x800');">
+  <div class="banner-content">
+    <h1>Find My Car - WELCOME</h1>
+    <p>
+      Trouve ta voiture tout près de chez toi !
+    </p>
+
+    <%= form_tag cars_path, class: 'form-inline' do %>
+      <input type="date" class="form-control input-lg" placeholder="Début" name="date_start">
+      <input type="date" class="form-control input-lg" placeholder="Fin" name="date_end">
+
+      <%= text_field_tag(:address, nil, placeholder:"Adresse...", class: 'form-control input-lg') %>
+      <%#= date_field("date_start", :date_start, placeholder: "Début", class: "form-control input-lg" ) %>
+      <%#= date_field("date_end", :date_end, placeholder: "Fin", class: "form-control input-lg")%>
+
+      <%= submit_tag 'Search', class: "btn btn-success btn-lg", value: "Search" %>
+    <% end %>
+  </div>
+</div>
