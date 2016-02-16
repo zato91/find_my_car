@@ -13,24 +13,25 @@ User.destroy_all
 users.cars_attributes = [
  { 
  		email: "toto@gmail.com",
- 		password: "12345",
+ 		password: "12345678",
 
  },
 
  {
  		email: "tata@gmail.com",
- 		password: "34567,"
+ 		password: "345678999,"
 
  }
 
  {
  		email: "titi@gmail.com",
- 		password: "45678,"
+ 		password: "456789999,"
 
  }
 
 ]
 
+users_attributes.each { |params| User.create!(params) }
 
 cars_attributes = [
   {
@@ -42,7 +43,7 @@ cars_attributes = [
     engin:  			"essence",
     year: 				2002,
     km:   				150 000,
-    user_id: 							,
+    user_id: 					1		,
   },
   {
     model:         "supra",
@@ -53,7 +54,7 @@ cars_attributes = [
     engin:  			"essence",
     year: 				2007,
     km:   				110 000,
-    user_id: 							,
+    user_id: 					2		,
   },
   {
     model:         "prius",
@@ -64,7 +65,7 @@ cars_attributes = [
     engin:  			"diesel",
     year: 				2013,
     km:   				20 000,
-    user_id: 							,
+    user_id: 					3		,
   }
 
 ]
