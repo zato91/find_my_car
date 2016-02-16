@@ -1,2 +1,37 @@
-<h1>Cars#index</h1>
-<p>Find me in app/views/cars/index.html.erb</p>
+
+<h1>test</h1>
+<%= link_to cars_path do %>
+<div class="container">
+	<div class="row">
+		<% @cars.each do |car| %>
+			<div class="cards">
+				<div class="col-xs-12 col-sm-3">
+					<div class="card">
+						<div class="card-body">
+							<div class="card-picture" style="background-image: url('http://unsplash.it/400/300')">
+								<div class="card-hover">
+									<h4>My work</h4>
+									<p>This is my work I'm proud of it.</p>
+								</div>
+							</div>
+							<div class="card-likes">
+								<ul class="list-inline">
+									<li><i class="fa fa-map-marker"></i> <%= car.address %></li>
+									<li><i class="fa fa-money"></i><%= car.price %>€/j</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card-footer">
+							<img src="http://placehold.it/30x30" alt="" class="avatar">
+							<a href="#">user name</a>
+						</div>
+					</div>
+				</div>
+			<%end%>	  
+		</div>
+	</div>
+	<% end %>
+					   
+
+
+	  			
