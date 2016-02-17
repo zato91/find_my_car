@@ -1,0 +1,65 @@
+.card-car {
+  position: relative;
+  padding: 30px 40px;
+  margin: 0 0 20px 0;
+  border: 1px solid #000;
+  color: #fff;
+  line-height: 21px;
+  border-radius: 0 3px 0 0;
+  background: #4A4A4A;
+  }
+.card-car-img {
+  background: url('temp_car_photo.png') center;
+  background-size: cover;
+  width: 300px;
+  height: 240px;
+  position: relative;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin: 0;
+}
+.card-car-photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0,0,0,0.4);
+}
+.card-car-add-photo-btn {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  margin-left: -25%;
+}
+.card-car-price {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  padding: 5px 18px 7px 18px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  line-height: 20px;
+  background: #E62464;
+  border-radius: 3px;
+}
+.card-car-price-label {
+  color: #fff;
+  font-size: 10px;
+  font-weight: lighter;
+  line-height: 10px;
+  opacity: .5;
+}
+.card-car-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+.card-car-separator {
+  border: none;
+  border-top: 1px solid #989898;
+}
