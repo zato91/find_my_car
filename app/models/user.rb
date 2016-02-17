@@ -19,4 +19,12 @@ class User < ActiveRecord::Base
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
   end
+
+  def picture_formated
+    if self.picture
+      return self.picture
+    else
+      return "http://placehold.it/30x30"
+    end
+  end
 end
