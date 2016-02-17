@@ -1,6 +1,8 @@
 
-<h1>test</h1>
-
+<h1>Nos voitures </h1>
+<% if @cars.blank? %>
+	<h2>Aucune Voiture pour cette recherche</h2>
+<% else %>
 <div class="container">
 	<div class="row">
 		<% @cars.each do |car| %>
@@ -30,6 +32,7 @@
 				  
 		</div>
 	</div>
+	<% end %>
 	<% end %>
 					   
 
