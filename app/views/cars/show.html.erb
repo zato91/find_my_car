@@ -1,23 +1,64 @@
-<h1>Cars#show</h1>
+<h1></h1>
 <div class="container">
   <div class="row">
-      <div class="card">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="cards">
+        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
           <div class="card">
-
-              <div class="cardlg-picture">
-             <!--  <%= cl_image_tag @car.photo.path, width: 200, height: 300, crop: :fill %> -->
+            <div class="card-body">
+              <div class="card-picture">
+                <%= cl_image_tag @car.photo.path, width: 353, height: 150, crop: :fill %>
               </div>
-
-            <div class="card-footer">
-                <img src="http://placehold.it/30x30" alt="" class="avatar">
-                <a href="#">user name</a>
             </div>
-            <ul class="list-inline">
-              <li><i class="fa fa-map-marker"></i> <%= @car.address %></li>
-              <li><i class="fa fa-money"></i><%= @car.price %>€/j</li>
-            </ul>
+            <div class="card-footer">
+                <%= image_tag @car.user.picture_formated, width: 30, height: 30, crop: :fill %>
+                <a href="#"><%= @car.user.name %></a>
+            </div>
+            </br>
+            <table class="table table-striped table-hover">
+               <thead> <!-- En-tête du tableau -->
+                   <tr>
+                       <th>Caractéristique</th>
+                       <th>Description</th>
+                   </tr>
+               </thead>
+               <tbody> <!-- Corps du tableau -->
+                   <tr>
+                       <td>Marque</td>
+                       <td><%= @car.brand %></td>
+                   </tr>
+                   <tr>
+                       <td>Modèle</td>
+                       <td><%= @car.model %></td>
+                   </tr>
+                   <tr>
+                       <td>Moteur</td>
+                       <td><%= @car.engin %></td>
+                   </tr>
+                   <tr>
+                       <td>Année</td>
+                       <td><%= @car.year %></td>
+                   </tr>
+                   <tr>
+                       <td>Kilométrage</td>
+                       <td><%= @car.km %></td>
+                   </tr>
+               </tbody>
+            </table>
           </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+          <h1>Fiche de réservation</h1>
+
+          <%= form_tag(cars_path, method: :get,class: 'form-inline' ) do %>
+            <input type="date" class="form-control input-lg" placeholder="Début" name="date_start">
+            <input type="date" class="form-control input-lg" placeholder="Fin" name="date_end">
+
+            <%= text_field_tag(:address, nil, placeholder:"Adresse...", class: 'form-control input-lg') %>
+            <%#= date_field("date_start", :date_start, placeholder: "Début", class: "form-control input-lg" ) %>
+            <%#= date_field("date_end", :date_end, placeholder: "Fin", class: "form-control input-lg")%>
+
+            <%= submit_tag 'Search', class: "btn btn-success btn-lg", value: "Search" %>
+          <% end %>
         </div>
     </div>
   </div>
