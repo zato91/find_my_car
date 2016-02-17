@@ -1,4 +1,5 @@
 class Car < ActiveRecord::Base
+	has_attachment :photo
   CATEGORIES = %w(Audi BMW Citroën Ford Hyundai Kia Mazda Nissan Peugeot Renault Toyota)
   has_many :rents
   belongs_to :user
