@@ -1,39 +1,46 @@
+
+
 <h1 class="text-center">Nos voitures </h1>
 <% if @cars.blank? %>
-    <h2 class="text-center">SORRY;( Aucune Voiture pour cette recherche</h2>
+	<h2 class="text-center">SORRY;( Aucune Voiture pour cette recherche</h2>
 <% else %>
 
 <div class="container">
-    <div class="row col" style="width:50%";>
-        <div class="cards">
-        <% @cars.each do |car| %>
+	<div class="row col">
+		<div class="cards">
+		<% @cars.each do |car| %>
 
-                <div class="col-xs-12 col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-picture" style="background-image: url('http://unsplash.it/400/300')">
-                                <div class="card-hover">
-                                    <h4><%= car.brand.capitalize %></h4>
-                                    <p><%= car.model %></p>
-                                    <p><%= car.km%>KM <%= car.year %></p>
-                                    <p><%= car.engin %></p>
-                                </div>
-                            </div>
-                            <div class="card-likes">
-                                <ul class="list-inline">
-                                    <li><i class="fa fa-map-marker"></i> <%= car.address %></li>
-                                    <li><i class="fa fa-money"></i><%= car.price %>€/j</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <img src="http://placehold.it/30x30" alt="" class="avatar">
-                            <%= link_to car.user.name, car_path(car)%>
-                        </div>
-                    </div>
-                </div>
+				<div class="col-xs-12 col-sm-3">
+					<div class="card">
+						<div class="card-body">
+							<div class="card-picture" style="background-image: url('http://unsplash.it/400/300')">
+								<div class="card-hover">
+									<h4><%= car.brand.capitalize %></h4>
+									<p><%= car.model %></p>
+									<p><%= car.km%>KM <%= car.year %></p>
+									<p><%= car.engin %></p>
+								</div>
+							</div>
+							<div class="card-likes">
+								<ul class="list-inline">
+									<li><i class="fa fa-map-marker"></i> <%= car.address %></li>
+									<li><i class="fa fa-money"></i><%= car.price %>€/j</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card-footer">
+							<img src="http://placehold.it/30x30" alt="" class="avatar">
+							<%=  car.user.email %>
+						</div>
+					</div>
+				</div>
 
 
+		<% end %>
+	</div>
+	</div>
+
+	<% end %>
         <% end %>
     </div>
     </div>
