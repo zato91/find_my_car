@@ -1,19 +1,23 @@
 
-<h1>Nos voitures </h1>
+<h1 class="text-center">Nos voitures </h1>
 <% if @cars.blank? %>
-	<h2>Aucune Voiture pour cette recherche</h2>
+	<h2 class="text-center">SORRY;( Aucune Voiture pour cette recherche</h2>
 <% else %>
+
 <div class="container">
-	<div class="row">
+	<div class="row col">
+		<div class="cards">
 		<% @cars.each do |car| %>
-			<div class="cards">
+			
 				<div class="col-xs-12 col-sm-3">
 					<div class="card">
 						<div class="card-body">
 							<div class="card-picture" style="background-image: url('http://unsplash.it/400/300')">
 								<div class="card-hover">
-									<h4>My work</h4>
-									<p>This is my work I'm proud of it.</p>
+									<h4><%= car.brand.capitalize %></h4>
+									<p><%= car.model %></p>
+									<p><%= car.km%>KM <%= car.year %></p>
+									<p><%= car.engin %></p>
 								</div>
 							</div>
 							<div class="card-likes">
@@ -25,14 +29,16 @@
 						</div>
 						<div class="card-footer">
 							<img src="http://placehold.it/30x30" alt="" class="avatar">
-							<a href="#">user name</a>
+							<%=  car.user.email %>
 						</div>
 					</div>
 				</div>
 				  
-		</div>
+		
+		<% end %>
 	</div>
-	<% end %>
+	</div>
+	
 	<% end %>
 					   
 
