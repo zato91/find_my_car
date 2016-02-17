@@ -1,25 +1,22 @@
 <h1>Cars#show</h1>
 <div class="container">
   <div class="row">
-      <div class="cards">
+      <div class="card">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
           <div class="card">
-            <div class="card-body">
-              <div class="card-picture" style="background-image: url('http://unsplash.it/400/300')">
-                <div class="card-hover">
-                </div>
+
+              <div class="cardlg-picture">
+             <!--  <%= cl_image_tag @car.photo.path, width: 200, height: 300, crop: :fill %> -->
               </div>
-              <div class="card-likes">
-                <ul class="list-inline">
-                  <li><i class="fa fa-map-marker"></i> <%= @car.address %></li>
-                  <li><i class="fa fa-money"></i><%= @car.price %>€/j</li>
-                </ul>
-              </div>
-            </div>
+
             <div class="card-footer">
-              <img src="http://placehold.it/30x30" alt="" class="avatar">
-              <a href="#">user name</a>
+                <img src="http://placehold.it/30x30" alt="" class="avatar">
+                <a href="#">user name</a>
             </div>
+            <ul class="list-inline">
+              <li><i class="fa fa-map-marker"></i> <%= @car.address %></li>
+              <li><i class="fa fa-money"></i><%= @car.price %>€/j</li>
+            </ul>
           </div>
         </div>
     </div>
