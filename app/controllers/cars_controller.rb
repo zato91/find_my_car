@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   before_action :set_cars, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@cars = Car.select{|c| c.address == params[:address]}
+  	@cars = Car.select{|c| c.address.downcase == params[:address].downcase}
   end
 
   def show
@@ -42,6 +42,6 @@ class CarsController < ApplicationController
  end
 
   def car_params
-    params.require(:car).permit(:model, :address, :brand, :price)
+    params.require(:car).permit(:model, :address, :brand, :price, :photo)
   end
 end
