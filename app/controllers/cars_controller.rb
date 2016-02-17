@@ -27,7 +27,7 @@ class CarsController < ApplicationController
 
   def update
     @car.update(car_params)
-    redirect_to car_path(@car)
+    redirect_to user_path(current_user)
   end
 
   def destroy

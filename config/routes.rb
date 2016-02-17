@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :cars, only: [:index, :new, :create, :show] do
+  resources :cars, only: [:index, :new, :create, :show, :edit, :update] do
     resources :rents, only: [:new, :create]
   end
   # The priority is based upon order of creation: first created -> highest priority.
