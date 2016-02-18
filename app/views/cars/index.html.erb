@@ -35,10 +35,15 @@
 							</div>
 						</div>
 						<div class="card-footer">
-							<img src="http://placehold.it/30x30" alt="" class="avatar">
-							<% if car.user != nil %>
+            <% if current_user.photo&.path != nil %>
+              <%= cl_image_tag current_user.photo&.path, class: "avatar" %>
+            <% else %>
+              <%= image_tag "unknown_user.png", class: "avatar" %>
+            <% end %>
+            <!--  safe condition if car without user -->
+						<% if car.user != nil %>
               <%= car.user.email %>
-              <% end %>
+            <% end %>
 						</div>
 						<% end %>
 					</div>
