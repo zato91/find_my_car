@@ -6,8 +6,8 @@
     </p>
 
     <%= form_tag(cars_path, method: :get,class: 'form-inline' ) do %>
-      <input type="date" class="form-control input-lg" placeholder="Début" name="date_start">
-      <input type="date" class="form-control input-lg" placeholder="Fin" name="date_end">
+      <input type="text" class="form-control input-lg datepicker" placeholder="Début" name="date_start">
+      <input type="text" class="form-control input-lg datepicker" placeholder="Fin" name="date_end">
       <%= text_field_tag(:address, nil, placeholder:"Adresse...", class: 'form-control input-lg') %>
       <%= submit_tag 'Search', class: "btn btn-success btn-lg", value: "Search" %>
     <% end %>

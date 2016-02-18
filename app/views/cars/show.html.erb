@@ -1,66 +1,59 @@
-<h1></h1>
-<div class="container">
-  <div class="row">
+<div id="car-wrapper">  
+  <div class="container">
+    <div class="row">
       <div class="cards">
         <div class="col-xs-12 col-sm-5 col-sm-offset-1">
           <div class="card">
-
             <div class="card-body">
-              <div class="card-picture" style="background-image: url('<%= @car.photo ? cl_image_path(@car.photo.path) : asset_path('temp_car_photo.png') %>')">
-               <div class="etiquette"><%= @car.price %> €</div>
+              <div class="card-picture-show" style="background-image: url('<%= @car.photo ? cl_image_path(@car.photo.path) : asset_path('temp_car_photo.png') %>')">
+                <div class="etiquette"><%= @car.price %> €</div>
               </div>
             </div>
             <div class="card-footer">
-                <%= image_tag @car.user.picture_formated, width: 30, height: 30, crop: :fill %>
-                <%= link_to @car.user.name, user_path %>
+              <%= image_tag @car.user.picture_formated, width: 30, height: 30, crop: :fill %>
+              <%= link_to @car.user.name, user_path(@car.user) %>
             </div>
             </br>
             <table class="table table-striped table-hover">
-               <thead> <!-- En-tête du tableau -->
-                   <tr>
-                       <th>Caractéristique</th>
-                       <th>Description</th>
-                   </tr>
-               </thead>
-               <tbody> <!-- Corps du tableau -->
-                   <tr>
-                       <td>Marque</td>
-                       <td><%= @car.brand %></td>
-                   </tr>
-                   <tr>
-                       <td>Modèle</td>
-                       <td><%= @car.model %></td>
-                   </tr>
-                   <tr>
-                       <td>Moteur</td>
-                       <td><%= @car.engin %></td>
-                   </tr>
-                   <tr>
-                       <td>Année</td>
-                       <td><%= @car.year %></td>
-                   </tr>
-                   <tr>
-                       <td>Kilométrage</td>
-                       <td><%= @car.km %></td>
-                   </tr>
-               </tbody>
+              <thead> <!-- En-tête du tableau -->
+                <tr>
+                  <th>Caractéristique</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+             <tbody> <!-- Corps du tableau -->
+              <tr>
+                <td>Marque</td>
+                <td><%= @car.brand %></td>
+              </tr>
+              <tr>
+                <td>Modèle</td>
+                <td><%= @car.model %></td>
+              </tr>
+              <tr>
+                <td>Moteur</td>
+                <td><%= @car.engin %></td>
+              </tr>
+              <tr>
+                <td>Année</td>
+                <td><%= @car.year %></td>
+              </tr>
+              <tr>
+                <td>Kilométrage</td>
+                <td><%= @car.km %></td>
+              </tr>
+             </tbody>
             </table>
           </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-sm-offset-1 text-center">
-
-          <div class="card-rent">
-            <%= form_tag(cars_path, method: :get,class: 'form' ) do %>
-              <div class="form-group">
-              <input type="date" class="form input-lg" placeholder="Début" name="date_start" value="<%= params[:date_start]%>">
-              </div>
-              <div class="form-group">
-              <input type="date" class="form input-lg" placeholder="Fin" name="date_end" value="<%= params[:date_start]%>">
-              </div>
-
-              <%= submit_tag 'Search', class: "btn btn-success btn-lg", style:"margin-left: -4px", value: "Réservation instantanée" %>
-            <% end %>
-          </div>
+          <%= simple_form_for [@car, @rent], html: {class: 'card-body'} do |f| %>
+            <%= f.input :date_start, label: "Date de début", as: :string, input_html: {value: params[:date_start], class: "datepicker"} %>
+            <%= f.input :date_end, label: "Date de fin", as: :string, input_html: {value: params[:date_end], class: "datepicker" } %>
+            <%= f.submit "Réservation instantanée", class: "btn btn-success", style:"margin-left: -4px" %>
+          <% end %>
         </div>
+      </div>
     </div>
   </div>
+</div>

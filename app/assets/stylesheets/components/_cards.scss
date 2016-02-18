@@ -9,6 +9,12 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  &-show {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 195px;
+  }
 }
 .card-likes {
   color: #B3B3B3;
