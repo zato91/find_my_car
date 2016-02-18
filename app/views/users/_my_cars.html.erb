@@ -1,13 +1,6 @@
 <div class="text-center">
   <h1>Mes voitures</h1>
 </div>
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
-    </div>
-  </div>
-</div> -->
-
 
 <div class="container">
   <ul class="list-unstyled">
@@ -51,7 +44,7 @@
               <div class="card-car-title"><%= car.brand %> <%= car.model %></div>
               <%= car.address %>
               <hr class="card-car-separator">
-              <%=link_to "Edit", edit_car_path, class: "btn btn-info" %>
+              <%=link_to "Edit", edit_car_path(car), class: "btn btn-info" %>
               <%= link_to "Delete", "#", class: "btn btn-danger" %>
             </div>
           </div>

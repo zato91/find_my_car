@@ -71,11 +71,12 @@
   font-weight: lighter;
   border: 1px solid #CCCCCC;
   border-radius: 3px;
+}
 .navbar-wagon-btn-login:hover {
   color: $gray-light;
   border-color: $gray-light;
 }
-}
+
 /* Navbar search form */
 .navbar-wagon-search {
   flex: 0 1 300px;
@@ -119,14 +120,14 @@
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  color: #999999 !important;
+  color: $blue !important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+  color: $darkblue !important;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
