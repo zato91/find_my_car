@@ -37,6 +37,9 @@
   top: 70%;
   left: 50%;
   margin-left: -25%;
+  li {
+    display: none;
+  }
 }
 .card-car-price {
   position: absolute;
@@ -71,4 +74,13 @@
 .card-car-btn {
   font-size: 15px;
   font-weight: light;
+}
+.small-btn {
+  position: absolute;
+  margin-left: 50px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: lighter;
+  line-height: 10px;
+  opacity: .5;
 }

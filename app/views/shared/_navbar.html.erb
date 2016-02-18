@@ -91,15 +91,15 @@
             <% end %>
           </li>
           <li>
+              <%= link_to user_path(id: current_user.id, tab: 'myrents') do %>
+                <i class="fa fa-calendar-check-o"></i>  <%= t ".profile", default: "Mes locations" %>
+              <% end %>
+          </li>
+          <li>
             <%= link_to user_path(id: current_user.id, tab: 'myprofile') do %>
               <i class="fa fa-user"></i>  <%= t ".profile", default: "Mon profil" %>
             <% end %>
           </li>
-          <li>
-              <%= link_to user_path(id: current_user.id, tab: 'myrents') do %>
-                <i class="fa fa-calendar-check-o"></i>  <%= t ".profile", default: "Mes locations" %>
-              <% end %>
-            </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
               <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Déconnexion" %>

@@ -16,7 +16,7 @@
                     <%= simple_form_for car do |f| %>
                       <%= f.error_notification %>
                       <%= f.input :photo, as: :attachinary, label_html: {class: "hidden"}, input_html: {class: "hidden", id: "upload_#{car.id}"} %>
-                      <%= f.button :submit, 'Sauvegarder', class: "btn btn-primary" %>
+                      <%= f.button :submit, 'OK', class: "btn btn-success small-btn " %>
                     <% end %>
                   </div>
                   <div class="card-car-price">

@@ -1,4 +1,4 @@
-<div id="car-wrapper">  
+<div id="car-wrapper">
   <div class="container">
     <div class="row">
       <div class="cards">
@@ -10,7 +10,11 @@
               </div>
             </div>
             <div class="card-footer">
-              <%= image_tag @car.user.picture_formated, width: 30, height: 30, crop: :fill %>
+             <% if current_user.photo&.path != nil %>
+              <%= cl_image_tag current_user.photo&.path, class: "avatar" %>
+            <% else %>
+              <%= image_tag "unknown_user.png", class: "avatar" %>
+            <% end %>
               <%= link_to @car.user.name, user_path(@car.user) %>
             </div>
             </br>
