@@ -1,9 +1,13 @@
 
 
-<h1 class="text-center">Nos voitures </h1>
-<%# if @cars.blank? %>
-	<!-- <h2 class="text-center">SORRY;( Aucune Voiture pour cette recherche</h2> -->
-<%# else %>
+<div class="fomulaire">
+	<%= form_tag(cars_path, method: :get,class: 'form-inline' ) do %>
+      <input type="date" class="form-control input-lg" placeholder="Debut" name="date_start" value="<%= params[:date_start] %>">
+      <input type="date" class="form-control input-lg" placeholder="Fin" name="date_end" value="<%= params[:date_end] %>">
+      <%= text_field_tag(:address, nil, placeholder:"#{params[:address]}", class: 'form-control input-lg') %>
+      <%= submit_tag 'Search', class: "btn btn-success btn-lg", value: "Search" %>
+    <% end %>
+</div>
 
 <div class="container">
 	<div class="row col">
@@ -43,5 +47,4 @@
 	</div>
 	</div>
 
-	<% #end %>
         
