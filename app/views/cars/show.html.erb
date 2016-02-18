@@ -6,8 +6,7 @@
           <div class="card">
 
             <div class="card-body">
-              <div class="card-picture">
-                <%= cl_image_tag @car.photo.path, width: 353, height: 150, crop: :fill %>
+              <div class="card-picture" style="background-image: url('<%= @car.photo ? cl_image_path(@car.photo.path) : asset_path('temp_car_photo.png') %>')">
               </div>
             </div>
             <div class="card-footer">
