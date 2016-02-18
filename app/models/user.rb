@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_attachment :photo
 	has_many :cars, dependent: :destroy
 	has_many :rents
   # Include default devise modules. Others available are:
