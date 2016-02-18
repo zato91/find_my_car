@@ -29,11 +29,15 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
+          <div class="navbar-wagon-name">
           <% if current_user.photo&.path != nil %>
             <%= cl_image_tag current_user.photo&.path, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <%= image_tag "unknown_user.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
+          <%= current_user.name %>
+          <i class="fa fa-angle-double-down" data-toggle="dropdown"></i>
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to user_path(id: current_user.id, tab: 'mycars') do %>
@@ -56,6 +60,7 @@
               <% end %>
             </li>
           </ul>
+          </div>
         </div>
       </div>
 

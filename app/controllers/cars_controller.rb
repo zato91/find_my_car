@@ -20,7 +20,7 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
-      redirect_to user_path(current_user)
+      redirect_to user_path(id: current_user.id, tab: 'mycars')
     else
       render :new
     end
@@ -31,7 +31,7 @@ class CarsController < ApplicationController
 
   def update
     @car.update(car_params)
-    redirect_to user_path(current_user)
+    redirect_to user_path(id: current_user.id, tab: 'myrents')
   end
 
   def destroy
