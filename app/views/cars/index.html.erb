@@ -12,7 +12,7 @@
 <div class="container">
 	<div class="row col">
 		<div class="cards">
-			
+
 		<% @cars.each do |car| %>
 
 				<div class="col-xs-12 col-sm-3">
@@ -36,9 +36,11 @@
 						</div>
 						<div class="card-footer">
 							<img src="http://placehold.it/30x30" alt="" class="avatar">
-							<%=  car.user.email %>
+							<% if car.user != nil %>
+              <%= car.user.email %>
+              <% end %>
 						</div>
-						<%end%>
+						<% end %>
 					</div>
 				</div>
 
@@ -46,5 +48,5 @@
 		<% end %>
 	</div>
 	</div>
+</div>
 
-        
