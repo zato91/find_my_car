@@ -8,10 +8,12 @@
 <div class="container">
 	<div class="row col">
 		<div class="cards">
+			
 		<% @cars.each do |car| %>
 
 				<div class="col-xs-12 col-sm-3">
 					<div class="card">
+						<%= link_to car_path(car) do %>
 						<div class="card-body">
 							<div class="card-picture" style="background-image: url('<%= car.photo ? cl_image_path(car.photo.path) : asset_path('temp_car_photo.png') %>')">
 								<div class="card-hover">
@@ -32,6 +34,7 @@
 							<img src="http://placehold.it/30x30" alt="" class="avatar">
 							<%=  car.user.email %>
 						</div>
+						<%end%>
 					</div>
 				</div>
 

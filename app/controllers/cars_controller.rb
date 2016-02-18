@@ -2,7 +2,6 @@ class CarsController < ApplicationController
   before_action :set_cars, only: [:show, :edit, :update, :destroy]
 
   def index
-    binding.pry
     if params[:address] == ""
       @cars = Car.all
     else
