@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @rents = current_user.rents
   end
 
   def edit

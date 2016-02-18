@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   before_action :set_cars, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:address] == ""
+    if params[:address].blank?
       @cars = Car.all
     else
       @cars = Car.select{|c| c.address.downcase == params[:address].downcase}
@@ -10,6 +10,9 @@ class CarsController < ApplicationController
   end
 
   def show
+    session[:date_start] = params[:date_start]
+    @date_start = session[:date_start]
+    @rent = Rent.new
   end
 
   def new
@@ -39,11 +42,11 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
- private
+  private
 
- def set_cars
+  def set_cars
    @car = Car.find(params[:id])
- end
+  end
 
   def car_params
     params.require(:car).permit(:model, :address, :brand, :price, :photo)
