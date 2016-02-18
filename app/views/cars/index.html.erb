@@ -2,8 +2,8 @@
 
 <div class="fomulaire">
 	<%= form_tag(cars_path, method: :get,class: 'form-inline' ) do %>
-      <input type="date" class="form-control input-lg" placeholder="Debut" name="date_start" value="<%= params[:date_start] %>">
-      <input type="date" class="form-control input-lg" placeholder="Fin" name="date_end" value="<%= params[:date_end] %>">
+      <input type="text" class="form-control input-lg datepicker" placeholder="Debut" name="date_start" value="<%= params[:date_start] %>">
+      <input type="text" class="form-control input-lg datepicker" placeholder="Fin" name="date_end" value="<%= params[:date_end] %>">
       <%= text_field_tag(:address, nil, placeholder:"#{params[:address]}", class: 'form-control input-lg') %>
       <%= submit_tag 'Search', class: "btn btn-success btn-lg", value: "Search" %>
     <% end %>
@@ -17,7 +17,7 @@
 
 				<div class="col-xs-12 col-sm-3">
 					<div class="card">
-						<%= link_to car_path(car) do %>
+						<%= link_to car_path(car, date_start: params[:date_start], date_end: params[:date_end] ) do %>
 						<div class="card-body">
 							<div class="card-picture" style="background-image: url('<%= car.photo ? cl_image_path(car.photo.path) : asset_path('temp_car_photo.png') %>')">
 								<div class="card-hover">
