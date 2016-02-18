@@ -40,8 +40,8 @@
               <div class="card-car-title"><%= car.brand %> <%= car.model %></div>
               <%= car.address %>
               <hr class="card-car-separator">
-              <%=link_to "Edit", edit_car_path(car), class: "btn btn-info" %>
-              <%= link_to "Delete", "#", class: "btn btn-danger" %>
+              <%=link_to "Modifier mon annonce", edit_car_path(car), class: "btn btn-info card-car-btn" %>
+              <%= link_to "Supprimer mon annonce", "#", class: "btn btn-danger card-car-btn" %>
             </div>
           </div>
         </div>

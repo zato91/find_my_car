@@ -61,10 +61,14 @@
 .card-car-title {
   display: block;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: lighter;
   margin-top: 20px;
 }
 .card-car-separator {
   border: none;
   border-top: 1px solid #989898;
+}
+.card-car-btn {
+  font-size: 15px;
+  font-weight: light;
 }
