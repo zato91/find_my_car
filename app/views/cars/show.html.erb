@@ -7,11 +7,12 @@
 
             <div class="card-body">
               <div class="card-picture" style="background-image: url('<%= @car.photo ? cl_image_path(@car.photo.path) : asset_path('temp_car_photo.png') %>')">
+               <div class="etiquette"><%= @car.price %> €</div>
               </div>
             </div>
             <div class="card-footer">
                 <%= image_tag @car.user.picture_formated, width: 30, height: 30, crop: :fill %>
-                <a href="#"><%= @car.user.name %></a>
+                <%= link_to @car.user.name, user_path %>
             </div>
             </br>
             <table class="table table-striped table-hover">
@@ -46,19 +47,20 @@
             </table>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-          <h1>Fiche de réservation</h1>
+        <div class="col-xs-12 col-sm-4 col-sm-offset-1 text-center">
 
-          <%= form_tag(cars_path, method: :get,class: 'form-inline' ) do %>
-            <input type="date" class="form-control input-lg" placeholder="Début" name="date_start">
-            <input type="date" class="form-control input-lg" placeholder="Fin" name="date_end">
+          <div class="card-rent">
+            <%= form_tag(cars_path, method: :get,class: 'form' ) do %>
+              <div class="form-group">
+              <input type="date" class="form input-lg" placeholder="Début" name="date_start" value="<%= params[:date_start]%>">
+              </div>
+              <div class="form-group">
+              <input type="date" class="form input-lg" placeholder="Fin" name="date_end" value="<%= params[:date_start]%>">
+              </div>
 
-            <%= text_field_tag(:address, nil, placeholder:"Adresse...", class: 'form-control input-lg') %>
-            <%#= date_field("date_start", :date_start, placeholder: "Début", class: "form-control input-lg" ) %>
-            <%#= date_field("date_end", :date_end, placeholder: "Fin", class: "form-control input-lg")%>
-
-            <%= submit_tag 'Search', class: "btn btn-success btn-lg", value: "Search" %>
-          <% end %>
+              <%= submit_tag 'Search', class: "btn btn-success btn-lg", style:"margin-left: -4px", value: "Réservation instantanée" %>
+            <% end %>
+          </div>
         </div>
     </div>
   </div>
