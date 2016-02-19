@@ -1,62 +1,69 @@
 <div id="car-wrapper">
-  <div class="container">
+  <div class="container padded-top">
     <div class="row">
-      <div class="cards">
-        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
-          <div class="card">
-            <div class="card-body">
-              <div class="card-picture-show" style="background-image: url('<%= @car.photo ? cl_image_path(@car.photo.path) : asset_path('temp_car_photo.png') %>')">
-                <div class="etiquette"><%= @car.price %> €</div>
-              </div>
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6">
+        <div class="card-body padded-top">
+          <div class="card-picture-show" style="background-image: url('<%= @car.photo ? cl_image_path(@car.photo.path) : asset_path('temp_car_photo.png') %>')">
+            <div class="card-car-price">
+              <div><%= @car.price %> €</div>
+              <div class="card-car-price-label">/ jour</div>
             </div>
-            <div class="card-footer">
-             <% if current_user.photo&.path != nil %>
+          </div>
+          <div class="card-footer">
+            <% if current_user.photo&.path != nil %>
               <%= cl_image_tag current_user.photo&.path, class: "avatar" %>
             <% else %>
               <%= image_tag "unknown_user.png", class: "avatar" %>
             <% end %>
-              <%= link_to @car.user.name, user_path(@car.user) %>
-            </div>
-            </br>
-            <table class="table table-striped table-hover">
-              <thead> <!-- En-tête du tableau -->
-                <tr>
-                  <th>Caractéristique</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-             <tbody> <!-- Corps du tableau -->
-              <tr>
-                <td>Marque</td>
-                <td><%= @car.brand %></td>
-              </tr>
-              <tr>
-                <td>Modèle</td>
-                <td><%= @car.model %></td>
-              </tr>
-              <tr>
-                <td>Moteur</td>
-                <td><%= @car.engin %></td>
-              </tr>
-              <tr>
-                <td>Année</td>
-                <td><%= @car.year %></td>
-              </tr>
-              <tr>
-                <td>Kilométrage</td>
-                <td><%= @car.km %></td>
-              </tr>
-             </tbody>
-            </table>
+            <%= link_to @car.user.name, user_path(@car.user) %>
           </div>
+          <table class="table table-striped table-hover">
+            <thead> <!-- En-tête du tableau -->
+              <tr>
+                <th>Caractéristique</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+           <tbody> <!-- Corps du tableau -->
+            <tr>
+              <td>Marque</td>
+              <td><%= @car.brand %></td>
+            </tr>
+            <tr>
+              <td>Modèle</td>
+              <td><%= @car.model %></td>
+            </tr>
+            <tr>
+              <td>Moteur</td>
+              <td><%= @car.engin %></td>
+            </tr>
+            <tr>
+              <td>Année</td>
+              <td><%= @car.year %></td>
+            </tr>
+            <tr>
+              <td>Kilométrage</td>
+              <td><%= @car.km %></td>
+            </tr>
+           </tbody>
+          </table>
         </div>
-        <div class="col-xs-12 col-sm-4 col-sm-offset-1 text-center">
-          <%= simple_form_for [@car, @rent], html: {class: 'card-body'} do |f| %>
-            <%= f.input :date_start, label: "Date de début", as: :string, input_html: {value: params[:date_start], class: "datepicker"} %>
-            <%= f.input :date_end, label: "Date de fin", as: :string, input_html: {value: params[:date_end], class: "datepicker" } %>
-            <%= f.submit "Réservation instantanée", class: "btn btn-success", style:"margin-left: -4px" %>
-          <% end %>
-        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-4 ">
+          <div class="car-picker padded-top text-center">
+              <%= simple_form_for [@car, @rent], html: {class: 'card-body'} do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :date_start, label: "Date de début", as: :string, input_html: {value: params[:date_start], class: "datepicker"} %>
+                <%= f.input :date_end, label: "Date de fin", as: :string, input_html: {value: params[:date_end], class: "datepicker" } %>
+                <%= f.submit "Réservation instantanée", class: "btn btn-success", style:"margin-left: -4px" %>
+              <% end %>
+            </div>
+          </div>
+      </div>
+      <hr class="card-car-separator">
+      <div class="flex btn ">
+        <%= link_to "Retour aux résultats", :back %>
       </div>
     </div>
   </div>
