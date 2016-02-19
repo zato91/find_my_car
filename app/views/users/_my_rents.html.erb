@@ -41,7 +41,12 @@
                 </div>
                 <div>Propriétaire : <%= rent.car.user.name %></div>
                 <hr class="card-car-separator">
-                location de <%= rent.date_start %> à <%= rent.date_end %>  <%= rent.total_price %> €
+                location de <%= rent.date_start %> à <%= rent.date_end %> 
+                 <div classe="prix" style="position:absolute; right: 39px; top: 10px;">
+                  <h4>Prix Total </h4>
+                  <p>  <%= rent.total_price %>€</p>
+                </div>
+            
                 <hr class="card-car-separator">
                 Statut : <%= rent.status.nil? ? "En attente de réponse de #{rent.car.user.name}" : rent.status %> 
               </div>
