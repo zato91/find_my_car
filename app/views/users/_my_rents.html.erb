@@ -35,12 +35,15 @@
                 <% end %>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
-                <div class="card-car-title"><h3><%= rent.car.brand %> <%= rent.car.model %></h3></div>
-                <%= rent.car.address %>
+                <div class="card-car-title">
+                  <h3><%= rent.car.brand %> <%= rent.car.model %></h3>
+                  <%= rent.car.address %>
+                </div>
+                <div>Propriétaire : <%= rent.car.user.name %></div>
                 <hr class="card-car-separator">
-                <!-- TODO display infos about car owner -->
+                location de <%= rent.date_start %> à <%= rent.date_end %>  <%= rent.total_price %> €
                 <hr class="card-car-separator">
-                Statut : <%= rent.status.nil? ? "En attente de réponse de #{rent.car.user.name}" : rent.status %>
+                Statut : <%= rent.status.nil? ? "En attente de réponse de #{rent.car.user.name}" : rent.status %> 
               </div>
             </div>
           </div>
