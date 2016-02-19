@@ -10,7 +10,7 @@
           <h3>Mes voitures</h3>
         </a>
         <a class="tab" data-target="#mybooking">
-          <h3>Réservations sur mon garage</h3>
+          <h3>Réservations sur mon garage<%= @rents_on_my_cars.count > 0 ? " - (#{@rents_on_my_cars.count})" : "" %></h3>
         </a>
         <a class="tab" data-target="#myrents">
           <h3>Mes locations</h3>
@@ -23,13 +23,10 @@
   </div>
 
   <% if current_user == @user %>
-   	<% if  params[:tab] == "mycars" %>
-    	<%= render 'my_cars' %>
-  	<% elsif  params[:tab] == "myrents" %>
-  	  <%= render 'my_rents' %>
-  	<% elsif params[:tab] == "myprofile" %>
-  	  <%= render 'my_profile' %>
-    <% end %>
+  	<%= render 'my_cars' %>
+    <%= render 'rents_on_my_cars' %>
+    <%= render 'my_rents' %>
+	  <%= render 'my_profile' %>
   <% else %>
     <%= render 'public_profile' %>
   <% end %>

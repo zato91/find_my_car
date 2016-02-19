@@ -4,7 +4,7 @@
       <%=link_to "Ajouter une voiture", new_car_path(@user), class: "btn btn-danger add-car-btn" %>
     </div>
     <ul class="list-unstyled">
-      <% @user.cars.each do |car| %>
+      <% @cars.each do |car| %>
         <li>
           <div class="card-car">
             <div class="row">
@@ -17,7 +17,7 @@
                       <%= simple_form_for car do |f| %>
                         <%= f.error_notification %>
                         <%= f.input :photo, as: :attachinary, label_html: {class: "hidden"}, input_html: {class: "hidden", id: "upload_#{car.id}"} %>
-                        <%= f.button :submit, 'OK', class: "btn btn-success card-car-btn small-btn " %>
+                        <%= f.button :submit, 'OK', class: "btn btn-success card-car-btn small-btn ", id: "confirm_#{car.id}" %>
                       <% end %>
                     </div>
                     <div class="card-car-price">

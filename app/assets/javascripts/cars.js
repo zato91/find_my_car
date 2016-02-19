@@ -4,6 +4,6 @@ $(document).ready(function() {
     var carId = $(this).attr('id').slice($(this).attr('id').lastIndexOf("_") + 1);
     $('#upload_' + carId).click();
     $(this).hide();
-    $('.small-btn').show();
+    $('#confirm_' + carId).show();
   })
 })

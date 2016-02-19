@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @rents = current_user.rents
+    @cars = @user.cars.reverse
+    @rents = current_user.rents.reverse
+    @rents_on_my_cars = Rent.where(car: current_user.cars)#.where.not(status: "declined")
   end
 
   def edit
