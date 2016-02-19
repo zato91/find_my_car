@@ -19,9 +19,11 @@ class RentsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  
+
   private
 
 	def rent_params
-		params.require(:rent).permit(:status, :user_id)
+		params.require(:rent).permit(:status, :user_id, :date_start, :date_end)
 	end
 end
