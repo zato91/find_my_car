@@ -1,7 +1,7 @@
 <div class="container">
-  <div class='tab-content hidden' id="myrents">
+  <div class='tab-content hidden' id="mybooking">
     <ul class="list-unstyled">
-      <% @rents.each do |rent| %>
+      <% @rents_on_my_cars.each do |rent| %>
         <li>
           <div class="card-car">
             <div class="row">
@@ -38,9 +38,28 @@
                 <div class="card-car-title"><h3><%= rent.car.brand %> <%= rent.car.model %></h3></div>
                 <%= rent.car.address %>
                 <hr class="card-car-separator">
-                <!-- TODO display infos about car owner -->
+                <!-- TODO display infos about user who wants to rent your car -->
+
                 <hr class="card-car-separator">
-                Statut : <%= rent.status.nil? ? "En attente de réponse de #{rent.car.user.name}" : rent.status %>
+                <% if rent.status.nil? %>
+                  <ul class="list-unstyled list-inline">
+                    <li>
+                      <%= simple_form_for rent do |f| %>
+                        <%= f.input :status, as: :hidden, input_html: {value: "accepted"} %>
+                        <%= f.submit "Accepter", class: "btn btn-info card-car-btn" %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= simple_form_for rent do |f| %>
+                        <%= f.input :status, as: :hidden, input_html: {value: "declined"} %>
+                        <%= f.submit "Refuser", class: "btn btn-danger card-car-btn" %>
+                      <% end %>
+                    </li>
+                  </ul>
+                <% elsif rent.status == "accepted" %>
+                  Statut : accepté - <%= rent.user.name %> vous sollicite pour une location de cette voiture le <%= rent.date_start.strftime("%d/%m/%Y") %>
+                <% end %>
+
               </div>
             </div>
           </div>
