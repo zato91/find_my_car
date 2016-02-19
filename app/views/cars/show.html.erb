@@ -10,11 +10,13 @@
               </div>
             </div>
             <div class="card-footer">
-             <% if current_user.photo&.path != nil %>
-              <%= cl_image_tag current_user.photo&.path, class: "avatar" %>
-            <% else %>
-              <%= image_tag "unknown_user.png", class: "avatar" %>
-            <% end %>
+              <% if current_user.photo&.path != nil %>
+                <%= cl_image_tag current_user.photo&.path, class: "avatar" %>
+              <% elsif current_user.picture %>
+                <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+              <% else %>
+                <%= image_tag "unknown_user.png", class: "avatar" %>
+              <% end %>
               <%= link_to @car.user.name, user_path(@car.user) %>
             </div>
             </br>

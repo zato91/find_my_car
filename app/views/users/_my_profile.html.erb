@@ -8,15 +8,13 @@
 
         <% if current_user.photo&.path != nil %>
           <%= cl_image_tag current_user.photo&.path, class: "avatar" %>
+        <% elsif current_user.picture %>
+          <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>
           <%= image_tag "unknown_user.png", class: "avatar" %>
         <% end %>
 
-        <%# link_to "", user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-        <%= link_to "#", method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" do %>
-          <i class="fa fa-trash"></i> Supprimer le profil
-        <% end %>
-        <%= link_to raw('<i class="fa fa-github-alt"></i> Back to users'), root_path, class: "btn btn-success" %>
+        <%= link_to raw('<i class="fa fa-github-alt"></i> Accueil'), root_path, class: "btn btn-success" %>
       </div>
     </div>
   </div>
