@@ -42,17 +42,22 @@
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to user_path(id: current_user.id, tab: 'mycars') do %>
+              <%= link_to user_path(id: current_user.id, anchor: 'mycars'), class: 'inner-nav', id: 'mycars-navbar' do %>
                 <i class="fa fa-car"></i> <%= t ".profile", default: "Mes voitures" %>
               <% end %>
             </li>
             <li>
-              <%= link_to user_path(id: current_user.id, tab: 'myrents') do %>
+              <%= link_to user_path(id: current_user.id, anchor: 'mybooking'), class: 'inner-nav', id: 'mybookings-navbar' do %>
+                <i class="fa fa-car"></i> <%= t ".profile", default: "Réservations sur mes voitures" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_path(id: current_user.id, anchor: 'myrents'), class: 'inner-nav', id: 'myrents-navbar' do %>
                 <i class="fa fa-calendar-check-o"></i>  <%= t ".profile", default: "Mes locations" %>
               <% end %>
             </li>
             <li>
-              <%= link_to user_path(id: current_user.id, tab: 'myprofile') do %>
+              <%= link_to user_path(id: current_user.id, anchor: 'myprofile'), class: 'inner-nav', id: 'myprofile-navbar' do %>
                 <i class="fa fa-user"></i>  <%= t ".profile", default: "Mon profil" %>
               <% end %>
             </li>

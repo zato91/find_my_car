@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     @cars = @user.cars.reverse
     @rents = current_user.rents.reverse
     @rents_on_my_cars = Rent.where(car: current_user.cars)#.where.not(status: "declined")
+    # @rent = Rent.find(params[:car_id])
+    # @price = @rent.total_price
   end
 
   def edit
@@ -15,6 +17,8 @@ class UsersController < ApplicationController
 
   def update
   end
+
+
 
   private
 

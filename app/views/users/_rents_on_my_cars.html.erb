@@ -39,6 +39,12 @@
                 <%= rent.car.address %>
                 <hr class="card-car-separator">
                 <!-- TODO display infos about user who wants to rent your car -->
+                
+                  <%= rent.user.name %> vous sollicite pour une location de cette voiture du <%= rent.date_start.strftime("%d/%m/%Y") %> au <%= rent.date_end.strftime("%d/%m/%Y") %>
+                  <div classe="prix" style="position:absolute; right: 39px; top: 10px;">
+                  <h4>Prix Total </h4>
+                  <p>  <%= rent.total_price %>€</p>
+                </div>
 
                 <hr class="card-car-separator">
                 <% if rent.status.nil? %>
@@ -57,7 +63,7 @@
                     </li>
                   </ul>
                 <% elsif rent.status == "accepted" %>
-                  Statut : accepté - <%= rent.user.name %> vous sollicite pour une location de cette voiture le <%= rent.date_start.strftime("%d/%m/%Y") %>
+                  Statut : accepté
                 <% end %>
 
               </div>

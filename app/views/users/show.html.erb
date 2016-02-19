@@ -6,16 +6,16 @@
       </div>
 
       <div class="tabs">
-        <a class="tab active" data-target="#mycars">
+        <a class="tab active" id="mycars-target" data-target="#mycars">
           <h3>Mes voitures</h3>
         </a>
-        <a class="tab" data-target="#mybooking">
+        <a class="tab" data-target="#mybooking" id="mybooking-target">
           <h3>Réservations sur mon garage<%= @rents_on_my_cars.count > 0 ? " - (#{@rents_on_my_cars.count})" : "" %></h3>
         </a>
-        <a class="tab" data-target="#myrents">
+        <a class="tab" data-target="#myrents" id="myrents-target">
           <h3>Mes locations</h3>
         </a>
-        <a class="tab" data-target="#myprofile">
+        <a class="tab" data-target="#myprofile" id="myprofile-target">
           <h3>Mon profil</h3>
         </a>
       </div>
