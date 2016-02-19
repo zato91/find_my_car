@@ -41,7 +41,7 @@
               <%= car.address %>
               <hr class="card-car-separator">
               <%=link_to "Editer", edit_car_path(car), class: "btn btn-info card-car-btn" %>
-              <%= link_to "Supprimer", "#", class: "btn btn-danger card-car-btn" %>
+              <%= link_to "Supprimer", car_path(car), method: :delete, data: { confirm: "Confirmer suppression ?" }, class: "btn btn-danger card-car-btn" %>
             </div>
           </div>
         </div>
