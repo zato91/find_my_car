@@ -1,6 +1,6 @@
 
 
-<div class="fomulaire">
+<div class="formulaire">
 	<%= form_tag(cars_path, method: :get,class: 'form-inline' ) do %>
       <input type="text" class="form-control input-lg datepicker" placeholder="Debut" name="date_start" value="<%= params[:date_start] %>">
       <input type="text" class="form-control input-lg datepicker" placeholder="Fin" name="date_end" value="<%= params[:date_end] %>">
@@ -12,7 +12,7 @@
 <div class="container">
 	<div class="row col">
 		<div class="cards">
-			
+
 		<% @cars.each do |car| %>
 
 				<div class="col-xs-12 col-sm-3">
@@ -35,10 +35,17 @@
 							</div>
 						</div>
 						<div class="card-footer">
-							<img src="http://placehold.it/30x30" alt="" class="avatar">
-							<%=  car.user.email %>
+            <% if current_user.photo&.path != nil %>
+              <%= cl_image_tag current_user.photo&.path, class: "avatar" %>
+            <% else %>
+              <%= image_tag "unknown_user.png", class: "avatar" %>
+            <% end %>
+            <!--  safe condition if car without user -->
+						<% if car.user != nil %>
+              <%= car.user.email %>
+            <% end %>
 						</div>
-						<%end%>
+						<% end %>
 					</div>
 				</div>
 
@@ -46,5 +53,5 @@
 		<% end %>
 	</div>
 	</div>
+</div>
 
-        

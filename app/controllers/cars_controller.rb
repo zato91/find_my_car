@@ -17,6 +17,7 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
+    @submit_label = "Ajouter ma voiture"
   end
 
   def create
@@ -30,16 +31,17 @@ class CarsController < ApplicationController
   end
 
   def edit
+    @submit_label = "Editer ma voiture"
   end
 
   def update
     @car.update(car_params)
-    redirect_to user_path(id: current_user.id, tab: 'myrents')
+    redirect_to user_path(id: current_user.id, tab: 'mycars')
   end
 
   def destroy
     @car.destroy
-    redirect_to cars_path
+    redirect_to user_path(id: current_user.id, tab: 'mycars')
   end
 
   private

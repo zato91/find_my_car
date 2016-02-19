@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :cars, only: [:index, :new, :create, :show, :edit, :update] do
+  resources :cars do
     resources :rents, only: [:new, :create]
   end
 
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

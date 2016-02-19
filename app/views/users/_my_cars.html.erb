@@ -1,51 +1,53 @@
-<div class="text-center">
-  <h1>Mes voitures</h1>
-</div>
 <div class="container">
-  <ul class="list-unstyled">
-    <% @user.cars.each do |car| %>
-      <li>
-        <div class="card-car">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-              <% if car.photo == nil %>
-              <div class="card-car-img" style="background-image:url('<%= (cl_image_path car.photo&.path) != '' ? cl_image_path(car.photo&.path) : asset_path('temp_car_photo.png'); %>')">
-                <div class="add_photo_overlay">
-                  <div class="card-car-add-photo-btn">
-                    <%= link_to "Ajouter une photo", "#", class: "btn btn-success trigger", id: "trigger_#{car.id}" %>
-                    <%= simple_form_for car do |f| %>
-                      <%= f.error_notification %>
-                      <%= f.input :photo, as: :attachinary, label_html: {class: "hidden"}, input_html: {class: "hidden", id: "upload_#{car.id}"} %>
-                      <%= f.button :submit, 'Sauvegarder', class: "btn btn-primary" %>
-                    <% end %>
-                  </div>
-                  <div class="card-car-price">
-                    <div><%= car.price %> €</div>
-                    <div class="card-car-price-label">/ jour</div>
-                  </div>
-                </div>
-              </div>
-              <% else %>
-              <div class="card-car-img" style="background-image:url('<%= cl_image_path car.photo&.path %>')">
-                <div class="add_photo_overlay">
-                  <div class="card-car-price">
-                    <div><%= car.price %> €</div>
-                    <div class="card-car-price-label">/ jour</div>
+  <div class='tab-content' id="mycars">
+    <div class="add-car-content">
+      <%=link_to "Ajouter une voiture", new_car_path(@user), class: "btn btn-danger add-car-btn" %>
+    </div>
+    <ul class="list-unstyled">
+      <% @user.cars.each do |car| %>
+        <li>
+          <div class="card-car">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+                <% if car.photo == nil %>
+                <div class="card-car-img" style="background-image:url('<%= (cl_image_path car.photo&.path) != '' ? cl_image_path(car.photo&.path) : asset_path('temp_car_photo.png'); %>')">
+                  <div class="add_photo_overlay">
+                    <div class="card-car-add-photo-btn">
+                      <%= link_to "Ajouter une photo", "#", class: "btn btn-success card-car-btn trigger", id: "trigger_#{car.id}" %>
+                      <%= simple_form_for car do |f| %>
+                        <%= f.error_notification %>
+                        <%= f.input :photo, as: :attachinary, label_html: {class: "hidden"}, input_html: {class: "hidden", id: "upload_#{car.id}"} %>
+                        <%= f.button :submit, 'OK', class: "btn btn-success card-car-btn small-btn " %>
+                      <% end %>
+                    </div>
+                    <div class="card-car-price">
+                      <div><%= car.price %> €</div>
+                      <div class="card-car-price-label">/ jour</div>
+                    </div>
                   </div>
                 </div>
+                <% else %>
+                <div class="card-car-img" style="background-image:url('<%= cl_image_path car.photo&.path %>')">
+                  <div class="add_photo_overlay">
+                    <div class="card-car-price">
+                      <div><%= car.price %> €</div>
+                      <div class="card-car-price-label">/ jour</div>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
               </div>
-              <% end %>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
-              <div class="card-car-title"><%= car.brand %> <%= car.model %></div>
-              <%= car.address %>
-              <hr class="card-car-separator">
-              <%=link_to "Modifier mon annonce", edit_car_path(car), class: "btn btn-info card-car-btn" %>
-              <%= link_to "Supprimer mon annonce", "#", class: "btn btn-danger card-car-btn" %>
+              <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
+                <div class="card-car-title"><h3><%= car.brand %> <%= car.model %></h3></div>
+                <%= car.address %>
+                <hr class="card-car-separator">
+                <%=link_to "Editer", edit_car_path(car), class: "btn btn-info card-car-btn" %>
+                <%= link_to "Supprimer", car_path(car), method: :delete, data: { confirm: "Confirmer suppression ?" }, class: "btn btn-danger card-car-btn" %>
+              </div>
             </div>
           </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

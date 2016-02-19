@@ -1,23 +1,21 @@
 #car-wrapper {
-  padding-top: 20px;
   background-color: rgb(249, 249, 249);
-  height: 90vh;
 }
 .card-car {
   position: relative;
   padding: 30px 40px;
-  margin: 0 0 20px 0;
-  border: 1px solid #000;
+  margin-bottom: 20px;
+  border: none;
   color: #fff;
   line-height: 21px;
-  border-radius: 0 3px 0 0;
-  background: #4A4A4A;
+  border-radius: 2px;
+  background: $gray-light;
   }
 .card-car-img {
   background: url('temp_car_photo.png') center;
   background-size: cover;
   width: 300px;
-  height: 240px;
+  height: 200px;
   position: relative;
   border-radius: 3px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -36,7 +34,10 @@
   position: absolute;
   top: 70%;
   left: 50%;
-  margin-left: -25%;
+  margin-left: -20%;
+  li {
+    display: none;
+  }
 }
 .card-car-price {
   position: absolute;
@@ -48,7 +49,7 @@
   text-align: center;
   font-weight: bold;
   line-height: 20px;
-  background: #E62464;
+  background: $red;
   border-radius: 3px;
 }
 .card-car-price-label {
@@ -69,6 +70,38 @@
   border-top: 1px solid #989898;
 }
 .card-car-btn {
-  font-size: 15px;
-  font-weight: light;
+  font-size: 12px;
+  line-height: 15px;
+  background: transparent;
+  color: #fff;
+  font-weight: lighter;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  margin-right: 10px;
+  padding: 8px 12px;
+  text-align: center;
+}
+.small-btn {
+  position: absolute;
+  margin-left: 50px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: lighter;
+  line-height: 10px;
+  opacity: .5;
+}
+.add-car-content {
+  margin-bottom: 10px;
+}
+.add-car-btn {
+  font-size: 12px;
+  line-height: 15px;
+  background: $red;
+  color: #fff;
+  font-weight: lighter;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  margin-right: 10px;
+  padding: 8px 12px;
+  text-align: center;
 }

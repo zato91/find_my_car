@@ -1,9 +1,4 @@
 @import 'card-car';
-
-
-.fomulaire {	
-	padding: 30px;
-	margin-bottom: 35px;
-	background-color: rgb(214, 209, 209);
-	text-align :center;
-}
+@import 'utilities';
+@import 'tabs';
+@import 'dashboard';
