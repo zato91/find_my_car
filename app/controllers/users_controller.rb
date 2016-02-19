@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def update
   end
+  
 
   private
 

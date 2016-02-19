@@ -5,6 +5,8 @@
 	  <%= render 'my_rents' %>
 	<% elsif params[:tab] == "myprofile" %>
 	  <%= render 'my_profile' %>
+	 <% elsif params[:tab] == "mybooking" %>
+	 	<%= render 'my_cars_booking' %>
   <% end %>
 <% else %>
   <%= render 'public_profile' %>
