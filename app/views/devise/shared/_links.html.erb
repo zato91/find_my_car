@@ -1,13 +1,32 @@
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+  <div class="fb-btn">
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary button_facebook' do %>
+      <i class="fa fa-facebook button_facebook_left"></i>
+      <span class="button_facebook_right"><%= "| #{@label} avec #{OmniAuth::Utils.camelize(provider)}" %></span>
+    <% end %>
+  </div>
+  <% end -%>
+<% end -%>
+
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <hr>
+  <%= link_to new_session_path(resource_name)  do %>
+    <div class="log-link">Déjà inscrit ? Connectez-vous</div>
+  <% end %>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <hr>
+  <%= link_to new_registration_path(resource_name) do %>
+    <div>Pas encore inscrit ?</div>
+  <% end %>
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <%= link_to new_password_path(resource_name) do %>
+  <div>Mot de pass oublié ?</div>
+  <% end %>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
@@ -18,8 +37,3 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
-<% end -%>

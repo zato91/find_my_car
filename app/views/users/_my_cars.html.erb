@@ -12,11 +12,11 @@
               <div class="card-car-img" style="background-image:url('<%= (cl_image_path car.photo&.path) != '' ? cl_image_path(car.photo&.path) : asset_path('temp_car_photo.png'); %>')">
                 <div class="add_photo_overlay">
                   <div class="card-car-add-photo-btn">
-                    <%= link_to "Ajouter une photo", "#", class: "btn btn-success trigger", id: "trigger_#{car.id}" %>
+                    <%= link_to "Ajouter une photo", "#", class: "btn btn-success card-car-btn trigger", id: "trigger_#{car.id}" %>
                     <%= simple_form_for car do |f| %>
                       <%= f.error_notification %>
                       <%= f.input :photo, as: :attachinary, label_html: {class: "hidden"}, input_html: {class: "hidden", id: "upload_#{car.id}"} %>
-                      <%= f.button :submit, 'OK', class: "btn btn-success small-btn " %>
+                      <%= f.button :submit, 'OK', class: "btn btn-success card-car-btn small-btn " %>
                     <% end %>
                   </div>
                   <div class="card-car-price">
@@ -37,11 +37,11 @@
               <% end %>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
-              <div class="card-car-title"><%= car.brand %> <%= car.model %></div>
+              <div class="card-car-title"><h3><%= car.brand %> <%= car.model %></h3></div>
               <%= car.address %>
               <hr class="card-car-separator">
-              <%=link_to "Modifier mon annonce", edit_car_path(car), class: "btn btn-info card-car-btn" %>
-              <%= link_to "Supprimer mon annonce", "#", class: "btn btn-danger card-car-btn" %>
+              <%=link_to "Editer", edit_car_path(car), class: "btn btn-info card-car-btn" %>
+              <%= link_to "Supprimer", "#", class: "btn btn-danger card-car-btn" %>
             </div>
           </div>
         </div>
