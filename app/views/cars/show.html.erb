@@ -8,39 +8,41 @@
               <div><%= @car.price %> €</div>
               <div class="card-car-price-label">/ jour</div>
             </div>
-          </div>
-          <div class="card-footer">
-            <% if current_user.photo&.path != nil %>
-              <%= cl_image_tag current_user.photo&.path, class: "avatar" %>
-            <% else %>
-              <%= image_tag "unknown_user.png", class: "avatar" %>
-            <% end %>
-            <%= link_to @car.user.name, user_path(@car.user) %>
-          </div>
-          <table class="table table-striped table-hover">
-            <thead> <!-- En-tête du tableau -->
+            <div class="card-footer">
+              <% if current_user.photo&.path != nil %>
+                <%= cl_image_tag current_user.photo&.path, class: "avatar" %>
+              <% elsif current_user.picture %>
+                <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+              <% else %>
+                <%= image_tag "unknown_user.png", class: "avatar" %>
+              <% end %>
+              <%= link_to @car.user.name, user_path(@car.user) %>
+            </div>
+            </br>
+            <table class="table table-striped table-hover">
+              <thead> <!-- En-tête du tableau -->
+                <tr>
+                  <th>Caractéristique</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+             <tbody> <!-- Corps du tableau -->
               <tr>
-                <th>Caractéristique</th>
-                <th>Description</th>
+                <td>Marque</td>
+                <td><%= @car.brand %></td>
               </tr>
-            </thead>
-           <tbody> <!-- Corps du tableau -->
-            <tr>
-              <td>Marque</td>
-              <td><%= @car.brand %></td>
-            </tr>
-            <tr>
-              <td>Modèle</td>
-              <td><%= @car.model %></td>
-            </tr>
-            <tr>
-              <td>Moteur</td>
-              <td><%= @car.engin %></td>
-            </tr>
-            <tr>
-              <td>Année</td>
-              <td><%= @car.year %></td>
-            </tr>
+              <tr>
+                <td>Modèle</td>
+                <td><%= @car.model %></td>
+              </tr>
+              <tr>
+                <td>Moteur</td>
+                <td><%= @car.engin %></td>
+              </tr>
+              <tr>
+                <td>Année</td>
+                <td><%= @car.year %></td>
+              </tr>
             <tr>
               <td>Kilométrage</td>
               <td><%= @car.km %></td>
