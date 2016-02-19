@@ -1,4 +1,14 @@
 $(function(){
+  var anchor
+  $('.inner-nav').on('click', function() {
+    setTimeout(function() {
+      var url = window.location.href;
+      if(url.indexOf("#") > -1) {
+        anchor = url.substring(url.indexOf("#")+1);
+        $("#" + anchor + "-target").click()
+      }
+    }, 100)
+  })
 
   $(".tab").on("click", function(e){
     // Change active tab
@@ -12,5 +22,8 @@ $(function(){
     var x = $(this).data('target');
     $(x).removeClass('hidden');
   });
+
+
+
 
 });
