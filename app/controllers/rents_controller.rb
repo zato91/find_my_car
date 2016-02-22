@@ -7,7 +7,7 @@ class RentsController < ApplicationController
   	@rent = @car.rents.new(rent_params)
     @rent.user = current_user
   	if @rent.save
-  		redirect_to user_path(id: current_user.id, tab: 'myrents')
+  		redirect_to user_path(current_user)
   	else
   		redirect_to car_path(@car)
   	end
@@ -19,7 +19,7 @@ class RentsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  
+
 
   private
 
