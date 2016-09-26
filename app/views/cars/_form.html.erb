@@ -6,7 +6,7 @@
           <%= f.input :brand, collection: Car::CATEGORIES, prompt: "Selectionner la marque", label: false %>
           <%= f.input :model, label: 'Modèle' %>
           <%= f.input :address, label: 'Adresse' %>
-          <%= f.input :price, label: 'Prix par jour' %>
+          <%= f.input :price_cents, label: 'Prix par jour' %>
           <%= f.input :description %>
           <%= f.input :engin, collection: ['Essence', 'Diesel'], label: 'Type de moteur :' %>
           <%= f.input :photo, as: :attachinary %>
